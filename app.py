@@ -14,10 +14,11 @@ def gerar_senha():
 
 def exibir_senha(event=None):
     senha_gerada = gerar_senha()
-    resultado_label.config(text=f'A senha gerada é {senha_gerada}')
+    resultado_label.config(text=f'{senha_gerada}')
 
 janela = tk.Tk()
 janela.title("Gerador de Senhas")
+janela.configure(bg='#003333')
 
 largura_janela = 200
 altura_janela = 200
@@ -30,10 +31,13 @@ pos_y = (altura_tela - altura_janela) // 2
 
 janela.geometry(f"{largura_janela}x{altura_janela}+{pos_x}+{pos_y}")
 
-botao_gerar_senha = tk.Button(janela, text="Gerar Senha", command=exibir_senha)
-botao_gerar_senha.pack(pady=10)
+botao_gerar_senha = tk.Button(janela, text="Gerar Senha", command=exibir_senha, bg="#006666", fg="#FFF", font=("Arial", 10, "bold"))
+botao_gerar_senha.pack(pady=10, anchor="center")
 
-resultado_label = tk.Label(janela, text="")
+senha_label = tk.Label(janela, text="Senha: ", bg="#003333", fg="#FFF", font=("Arial", 10, "bold"))
+senha_label.pack(padx=13, pady=5, anchor="w")
+
+resultado_label = tk.Label(janela, width=20, anchor="w", font=("Arial", 10, "bold"))
 resultado_label.pack()
 
 janela.mainloop()
